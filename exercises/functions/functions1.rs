@@ -3,8 +3,13 @@
 // Execute `rustlings hint functions1` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
+fn call_me() {
+    println!("Call me!");
+}
 
 fn main() {
+    let test = 1;
+    let test = "I can be overwritten with a string";
     call_me();
 }

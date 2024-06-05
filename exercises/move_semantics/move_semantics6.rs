@@ -5,14 +5,17 @@
 // Execute `rustlings hint move_semantics6` or use the `hint` watch subcommand
 // for a hint.
 
-// I AM NOT DONE
 
 fn main() {
     let data = "Rust is great!".to_string();
 
-    get_char(data);
+    let test = get_char(data.clone());
 
-    string_uppercase(&data);
+    borrow_string(&data);
+
+    string_uppercase(data);
+
+    println!("Last character of data: {}", test);
 }
 
 // Should not take ownership
@@ -20,9 +23,13 @@ fn get_char(data: String) -> char {
     data.chars().last().unwrap()
 }
 
+fn borrow_string(data: &String) {
+    println!("{}", data);
+}
+
 // Should take ownership
-fn string_uppercase(mut data: &String) {
-    data = &data.to_uppercase();
+fn string_uppercase(mut data: String) {
+    data = data.to_uppercase();
 
     println!("{}", data);
 }
